@@ -27,7 +27,7 @@ const routes = [
   },
 ];
 
-const BASE_PATH = "/piedra-papel-tijera";
+const BASE_PATH = "/PPT-Offline";
 
 //Esta funcion devuelve true o false dependiendo si estamos en gh-pages
 function isGitHubPages() {
