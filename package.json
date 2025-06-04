@@ -1,0 +1,23 @@
+{
+  "name": "piedra-papel-tijera",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html --dist-dir build",
+    "deploy": "gh-pages -d build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Diego Rodriguez",
+  "license": "ISC",
+  "description": "Desafio PPT - APX",
+  "devDependencies": {
+    "@types/node": "^22.13.11",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0",
+    "parcel": "^2.14.4"
+  }
+}

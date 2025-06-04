@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: roboto slab;
+}
+.root {
+  margin: 0;
+  padding: 0;
+  background-image: url("./icons/background-desktop.svg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
