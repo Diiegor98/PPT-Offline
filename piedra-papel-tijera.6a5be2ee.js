@@ -1,4 +1,4 @@
-const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machinePlay:""},history:{winners:"0",losses:"0"}},listeners:[],getState(){return this.data},setState(e){for(let t of(this.data=e,localStorage.setItem("state",JSON.stringify(e)),console.log("Se ha realizado un cambio en el state:",e),this.listeners))t()},suscribe(e){this.listeners.push(e)},setGame(e,t){let i={...this.getState(),game:{myPlay:e,machinePlay:t}};this.setState(i)},setHistory(e,t){let i=+("piedra"===e&&"tijera"===t||"papel"===e&&"piedra"===t||"tijera"===e&&"papel"===t),n=+("piedra"===e&&"papel"===t||"papel"===e&&"tijera"===t||"tijera"===e&&"piedra"===t);console.log("myChoice:",e,"machineChoice:",t,"win:",i.toString(),"loss:",n.toString());let a={...this.getState(),history:{winners:(parseInt(this.getState().history.winners)+i).toString(),losses:(parseInt(this.getState().history.losses)+n).toString()}};this.setState(a)},clearHistory(){let e={...this.getState(),history:{winners:"0",losses:"0"}};this.setState(e)}};var t={};t=import.meta.resolve("cx4G6");var i={};i=import.meta.resolve("04Mf6");var n={};n=import.meta.resolve("gfEMJ");var a={};a=import.meta.resolve("4ZMB4");var o={};o=import.meta.resolve("3tc69");var r={};r=import.meta.resolve("bjWUE");var s={};s=import.meta.resolve("aiuSD");var c={};c=import.meta.resolve("2uOnW");var l={};l=import.meta.resolve("3SDhT");var d={};d=import.meta.resolve("lCT8E");const p=[{path:/\/home/,component:function(e){let t=document.querySelector(".root"),i=document.createElement("div"),n=document.createElement("style");i.innerHTML=`
+const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machinePlay:""},history:{winners:"0",losses:"0"}},listeners:[],getState(){return this.data},setState(e){for(let t of(this.data=e,localStorage.setItem("state",JSON.stringify(e)),console.log("Se ha realizado un cambio en el state:",e),this.listeners))t()},suscribe(e){this.listeners.push(e)},setGame(e,t){let i={...this.getState(),game:{myPlay:e,machinePlay:t}};this.setState(i)},setHistory(e,t){let i=+("piedra"===e&&"tijera"===t||"papel"===e&&"piedra"===t||"tijera"===e&&"papel"===t),n=+("piedra"===e&&"papel"===t||"papel"===e&&"tijera"===t||"tijera"===e&&"piedra"===t);console.log("myChoice:",e,"machineChoice:",t,"win:",i.toString(),"loss:",n.toString());let o={...this.getState(),history:{winners:(parseInt(this.getState().history.winners)+i).toString(),losses:(parseInt(this.getState().history.losses)+n).toString()}};this.setState(o)},clearHistory(){let e={...this.getState(),history:{winners:"0",losses:"0"}};this.setState(e)}};var t={};t=import.meta.resolve("cx4G6");var i={};i=import.meta.resolve("04Mf6");var n={};n=import.meta.resolve("gfEMJ");var o={};o=import.meta.resolve("4ZMB4");var a={};a=import.meta.resolve("3tc69");var r={};r=import.meta.resolve("bjWUE");var s={};s=import.meta.resolve("aiuSD");var c={};c=import.meta.resolve("2uOnW");var l={};l=import.meta.resolve("3SDhT");var d={};d=import.meta.resolve("lCT8E");const p=[{path:/\/home/,component:function(e){let t=document.querySelector(".root"),i=document.createElement("div"),n=document.createElement("style");i.innerHTML=`
     <div class="container-home">
       <text-el variant="title" class="home__title">Piedra Papel \xf3 Tijera</text-el>
       <button-el class="home__button" variant="button">Empezar</button-el>
@@ -34,7 +34,7 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
         margin-top: 26px;
       }
     }    
-  `,t?.appendChild(n),t?.appendChild(i);let a=document.querySelector(".home__button");a?.addEventListener("click",()=>{e.goTo("/instructions")})}},{path:/\/instructions/,component:function(e){let t=document.querySelector(".root"),i=document.createElement("div"),n=document.createElement("style");i.innerHTML=`
+  `,t?.appendChild(n),t?.appendChild(i);let o=document.querySelector(".home__button");o?.addEventListener("click",()=>{e.goTo("/instructions")})}},{path:/\/instructions/,component:function(e){let t=document.querySelector(".root"),i=document.createElement("div"),n=document.createElement("style");i.innerHTML=`
     <div class="container__instructions">
       <text-el variant="body" class="instructions__text">Presion\xe1 jugar y eleg\xed: piedra, papel o tijera antes de que pasen los 3 segundos.</text-el>
       <button-el class="instructions__button" variant="button">\xa1Jugar!</button-el>
@@ -70,13 +70,13 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
         margin-top: 48px;
       }
     }  
-  `,t?.appendChild(n),t?.appendChild(i);let a=document.querySelector(".instructions__button");a?.addEventListener("click",()=>{e.goTo("/game")})}},{path:/\/game/,component:function(t){let i=document.querySelector(".root"),n=document.createElement("div"),a=document.createElement("style");n.innerHTML=`
+  `,t?.appendChild(n),t?.appendChild(i);let o=document.querySelector(".instructions__button");o?.addEventListener("click",()=>{e.goTo("/game")})}},{path:/\/game/,component:function(t){let i=document.querySelector(".root"),n=document.createElement("div"),o=document.createElement("style");n.innerHTML=`
     <div class="container__game">
       <timer-comp class="game__timer"></timer-comp>
       <button-el class="game__button" variant="button">Restart!</button-el>
       <choice-comp class="game__choice"></choice-comp>
     </div>
-  `,a.innerHTML=`
+  `,o.innerHTML=`
     .container__game{
       margin: 0;
       padding: 0;
@@ -106,10 +106,10 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
         margin-top: 240px;
       }
     }
-  `,i?.appendChild(a),i?.appendChild(n);let o=n.querySelector(".game__timer"),r=n.querySelector(".game__button"),s=n.querySelector(".game__choice"),c=!1,l=Math.floor(3*Math.random())+1,d=1===l?"piedra":2===l?"papel":3===l?"tijera":"";s?.addEventListener("piedra-clicked",()=>{c=!0,s.dispatchEvent(new CustomEvent("piedra-selected"));let t="piedra";e.setGame(t,d),e.setHistory(t,d)}),s?.addEventListener("papel-clicked",()=>{c=!0,s.dispatchEvent(new CustomEvent("papel-selected"));let t="papel";e.setGame(t,d),e.setHistory(t,d)}),s?.addEventListener("tijera-clicked",()=>{c=!0,s.dispatchEvent(new CustomEvent("tijera-selected"));let t="tijera";e.setGame(t,d),e.setHistory(t,d)}),o?.addEventListener("timer-finished",()=>{o.style.display="none",c?t.goTo("/confrontation"):r.style.display="inherit"}),r?.addEventListener("click",()=>{o.dispatchEvent(new CustomEvent("timer-restarted")),o.style.display="inherit",r.style.display="none"})}},{path:/\/confrontation/,component:function(e){let t=document.querySelector(".root"),i=document.createElement("div");i.innerHTML=`
+  `,i?.appendChild(o),i?.appendChild(n);let a=n.querySelector(".game__timer"),r=n.querySelector(".game__button"),s=n.querySelector(".game__choice"),c=!1,l=Math.floor(3*Math.random())+1,d=1===l?"piedra":2===l?"papel":3===l?"tijera":"";s?.addEventListener("piedra-clicked",()=>{c=!0,s.dispatchEvent(new CustomEvent("piedra-selected"));let t="piedra";e.setGame(t,d),e.setHistory(t,d)}),s?.addEventListener("papel-clicked",()=>{c=!0,s.dispatchEvent(new CustomEvent("papel-selected"));let t="papel";e.setGame(t,d),e.setHistory(t,d)}),s?.addEventListener("tijera-clicked",()=>{c=!0,s.dispatchEvent(new CustomEvent("tijera-selected"));let t="tijera";e.setGame(t,d),e.setHistory(t,d)}),a?.addEventListener("timer-finished",()=>{a.style.display="none",c?t.goTo("/confrontation"):r.style.display="inherit"}),r?.addEventListener("click",()=>{a.dispatchEvent(new CustomEvent("timer-restarted")),a.style.display="inherit",r.style.display="none"})}},{path:/\/confrontation/,component:function(e){let t=document.querySelector(".root"),i=document.createElement("div");i.innerHTML=`
     <div class="container__confrontation">
       <versus-comp class="confrontation__versus"></versus-comp>
-    </div>`,t?.appendChild(i);let n=document.querySelector(".container__confrontation"),a=3,o=!1;n?.addEventListener("click",()=>{e.goTo("/score"),o=!0});let r=setInterval(()=>{0!=--a||o||(clearInterval(r),e.goTo("/score"))},1e3)}},{path:/\/score/,component:function(t){let i=document.querySelector(".root"),n=document.createElement("div"),a=document.createElement("style"),o="";n.innerHTML=`
+    </div>`,t?.appendChild(i);let n=document.querySelector(".container__confrontation"),o=3,a=!1;n?.addEventListener("click",()=>{e.goTo("/score"),a=!0});let r=setInterval(()=>{0!=--o||a||(clearInterval(r),e.goTo("/score"))},1e3)}},{path:/\/score/,component:function(t){let i=document.querySelector(".root"),n=document.createElement("div"),o=document.createElement("style"),a="";n.innerHTML=`
   <div class="container__score-page">
     <div class="container__versus">
       <versus-comp class="versus"></versus-comp>
@@ -121,9 +121,9 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
       <button-el class="score__button-reset" variant="button-reset">Reset Score</button-el>
     </div>
   </div>
-  `,i?.appendChild(n);let r=document.querySelector(".score__star"),s=r?.shadowRoot?.querySelector(".star__text"),c=s?.textContent;console.log("soy el resultado",c),o="Ganaste"===c?"#888949E5":"Perdiste"===c?"#894949E5":"#3399ff",a.innerHTML=`
+  `,i?.appendChild(n);let r=document.querySelector(".score__star"),s=r?.shadowRoot?.querySelector(".star__text"),c=s?.textContent;console.log("soy el resultado",c),a="Ganaste"===c?"#888949E5":"Perdiste"===c?"#894949E5":"#3399ff",o.innerHTML=`
   .container__score-page{
-  background-color: ${o};
+  background-color: ${a};
   opacity: 0.9;
   height: 100vh;
   }
@@ -188,7 +188,7 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
       justify-self: center;
     }
   }  
-  `,i?.appendChild(a);let l=document.querySelector(".score__button-game");l?.addEventListener("click",()=>t.goTo("/instructions"));let d=document.querySelector(".score__button-reset");d?.addEventListener("click",()=>{e.clearHistory(),t.goTo("/home")})}}],m="/piedra-papel-tijera";function h(){return location.host.includes("github.io")}!function(){class u extends HTMLElement{constructor(){super(),this.render()}render(){let e=this.attachShadow({mode:"open"}),t=this.getAttribute("variant")||"",i=document.createElement("title"===t?"h1":"body"===t?"h3":"p");i.classList.add(t),i.textContent=this.textContent;let n=document.createElement("style");n.innerHTML=`
+  `,i?.appendChild(o);let l=document.querySelector(".score__button-game");l?.addEventListener("click",()=>t.goTo("/instructions"));let d=document.querySelector(".score__button-reset");d?.addEventListener("click",()=>{e.clearHistory(),t.goTo("/home")})}}],m="/PPT-Offline";function h(){return location.host.includes("github.io")}!function(){class u extends HTMLElement{constructor(){super(),this.render()}render(){let e=this.attachShadow({mode:"open"}),t=this.getAttribute("variant")||"",i=document.createElement("title"===t?"h1":"body"===t?"h3":"p");i.classList.add(t),i.textContent=this.textContent;let n=document.createElement("style");n.innerHTML=`
       .title{
         color: #009048;
         font-size: 80px;
@@ -264,7 +264,7 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
           }  
         }
         
-        `,e.appendChild(n),e.appendChild(t)}}customElements.define("button-el",g);class _ extends HTMLElement{constructor(){super(),this.render()}render(){let a=this.attachShadow({mode:"open"}),o=document.createElement("div"),r=document.createElement("style"),s=e.getState().game,c="piedra"===s.myPlay&&"tijera"===s.machinePlay||"papel"===s.myPlay&&"piedra"===s.machinePlay||"tijera"===s.myPlay&&"papel"===s.machinePlay?"1":"0",l="piedra"===s.myPlay&&"papel"===s.machinePlay||"papel"===s.myPlay&&"tijera"===s.machinePlay||"tijera"===s.myPlay&&"piedra"===s.machinePlay?"1":"0",d="",p="";"1"===c?(d=i,p="Ganaste"):"1"===l?(d=t,p="Perdiste"):(d=n,p="Empate"),o.innerHTML=`
+        `,e.appendChild(n),e.appendChild(t)}}customElements.define("button-el",g);class _ extends HTMLElement{constructor(){super(),this.render()}render(){let o=this.attachShadow({mode:"open"}),a=document.createElement("div"),r=document.createElement("style"),s=e.getState().game,c="piedra"===s.myPlay&&"tijera"===s.machinePlay||"papel"===s.myPlay&&"piedra"===s.machinePlay||"tijera"===s.myPlay&&"papel"===s.machinePlay?"1":"0",l="piedra"===s.myPlay&&"papel"===s.machinePlay||"papel"===s.myPlay&&"tijera"===s.machinePlay||"tijera"===s.myPlay&&"piedra"===s.machinePlay?"1":"0",d="",p="";"1"===c?(d=i,p="Ganaste"):"1"===l?(d=t,p="Perdiste"):(d=n,p="Empate"),a.innerHTML=`
         <div class="container__star">
           <img src="${d}" class="star__img" alt="Star Icon">
           <h3 class="star__text">${p}</h3>
@@ -305,13 +305,13 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
           }
         }  
       
-      `,a.appendChild(o),a.appendChild(r)}}customElements.define("star-comp",_);class x extends HTMLElement{constructor(){super(),this.render()}render(){let t=this.attachShadow({mode:"open"}),i=document.createElement("div"),n=e.getState().history.winners,a=e.getState().history.losses,o=document.createElement("style");i.innerHTML=`
+      `,o.appendChild(a),o.appendChild(r)}}customElements.define("star-comp",_);class x extends HTMLElement{constructor(){super(),this.render()}render(){let t=this.attachShadow({mode:"open"}),i=document.createElement("div"),n=e.getState().history.winners,o=e.getState().history.losses,a=document.createElement("style");i.innerHTML=`
       <div class="container__score">
         <h3 class="score__title">Score</h3>
         <p class="score__text">Vos: ${n}</p>
-        <p class="score__text">M\xe1quina: ${a}</p>
+        <p class="score__text">M\xe1quina: ${o}</p>
       </div>
-    `,o.innerHTML=`
+    `,a.innerHTML=`
       .container__score{
       box-sizing: border-box;
         margin: 0;
@@ -357,16 +357,16 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
           font-size: 55px;
         }
       }
-      `,t.appendChild(o),t.appendChild(i)}}customElements.define("score-comp",x);class v extends HTMLElement{constructor(){super(),this.render()}render(){let e=this.attachShadow({mode:"open"}),t=document.createElement("div"),i=document.createElement("style");t.innerHTML=`
+      `,t.appendChild(a),t.appendChild(i)}}customElements.define("score-comp",x);class v extends HTMLElement{constructor(){super(),this.render()}render(){let e=this.attachShadow({mode:"open"}),t=document.createElement("div"),i=document.createElement("style");t.innerHTML=`
       <div class="container-choices">
         <div class="container choices__tijera">
           <img src="${r}" class="choice tijera" alt="Tijera Icon">
         </div>
         <div class="container choices__piedra">
-          <img src="${a}" class="choice piedra" alt="Piedra Icon">
+          <img src="${o}" class="choice piedra" alt="Piedra Icon">
         </div>
         <div class="container choices__papel">
-          <img src="${o}" class="choice papel" alt="Papel Icon">
+          <img src="${a}" class="choice papel" alt="Papel Icon">
         </div>
       </div> 
       `,i.innerHTML=`
@@ -398,7 +398,7 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
       .container:hover {
         transform: translateY(-30px); /* Levantar la opci\xf3n al pasar el mouse */  
       }  
-      `,e.appendChild(i),e.appendChild(t);let n=e.querySelector(".piedra"),s=e.querySelector(".papel"),c=e.querySelector(".tijera"),l=e.querySelector(".choices__piedra"),d=e.querySelector(".choices__papel"),p=e.querySelector(".choices__tijera");n?.addEventListener("click",()=>{this.dispatchEvent(new CustomEvent("piedra-clicked"))}),s?.addEventListener("click",()=>{this.dispatchEvent(new CustomEvent("papel-clicked"))}),c?.addEventListener("click",()=>{this.dispatchEvent(new CustomEvent("tijera-clicked"))}),this.addEventListener("piedra-selected",()=>{l.style.transform="translateY(-30px)",d.style.opacity="0.5",p.style.opacity="0.5"}),this.addEventListener("papel-selected",()=>{d.style.transform="translateY(-30px)",l.style.opacity="0.5",p.style.opacity="0.5"}),this.addEventListener("tijera-selected",()=>{p.style.transform="translateY(-30px)",d.style.opacity="0.5",l.style.opacity="0.5"})}}customElements.define("choice-comp",v);var y=document.querySelector(".root");function f(e){let t=h()?m+e:e;history.pushState({},"",t),b(t)}function b(e){console.log(" el handleRoute recibio una ruta",e);let t=h()?e.replace(m,""):e;y.innerHTML="";let i=!1;for(let e of p)if(e.path.test(t)){e.component({goTo:f}),i=!0;break}i||console.log("Ruta no encontrada:",t)}"/"==location.pathname?f("/home"):b(location.pathname),window.onpopstate=function(){b(location.pathname)};class w extends HTMLElement{constructor(){super(),this.render()}render(){let e=this.attachShadow({mode:"open"}),t=document.createElement("div");t.classList.add("container__timer");let i=document.createElement("style"),n=4,a=document.createElement("img");a.classList.add("timer__img"),a.src=s;let o=()=>{let e=setInterval(()=>{a.src=--n>0?3===n?c:2===n?l:d:d,0===n&&(clearInterval(e),this.dispatchEvent(new CustomEvent("timer-finished")))},1e3)};this.addEventListener("timer-restarted",()=>{n=4,a.src=s,o()}),i.innerHTML=`
+      `,e.appendChild(i),e.appendChild(t);let n=e.querySelector(".piedra"),s=e.querySelector(".papel"),c=e.querySelector(".tijera"),l=e.querySelector(".choices__piedra"),d=e.querySelector(".choices__papel"),p=e.querySelector(".choices__tijera");n?.addEventListener("click",()=>{this.dispatchEvent(new CustomEvent("piedra-clicked"))}),s?.addEventListener("click",()=>{this.dispatchEvent(new CustomEvent("papel-clicked"))}),c?.addEventListener("click",()=>{this.dispatchEvent(new CustomEvent("tijera-clicked"))}),this.addEventListener("piedra-selected",()=>{l.style.transform="translateY(-30px)",d.style.opacity="0.5",p.style.opacity="0.5"}),this.addEventListener("papel-selected",()=>{d.style.transform="translateY(-30px)",l.style.opacity="0.5",p.style.opacity="0.5"}),this.addEventListener("tijera-selected",()=>{p.style.transform="translateY(-30px)",d.style.opacity="0.5",l.style.opacity="0.5"})}}customElements.define("choice-comp",v);var y=document.querySelector(".root");function f(e){let t=h()?m+e:e;history.pushState({},"",t),b(t)}function b(e){console.log(" el handleRoute recibio una ruta",e);let t=h()?e.replace(m,""):e;y.innerHTML="";let i=!1;for(let e of p)if(e.path.test(t)){e.component({goTo:f}),i=!0;break}i||console.log("Ruta no encontrada:",t)}"/"==location.pathname?f("/home"):b(location.pathname),window.onpopstate=function(){b(location.pathname)};class w extends HTMLElement{constructor(){super(),this.render()}render(){let e=this.attachShadow({mode:"open"}),t=document.createElement("div");t.classList.add("container__timer");let i=document.createElement("style"),n=4,o=document.createElement("img");o.classList.add("timer__img"),o.src=s;let a=()=>{let e=setInterval(()=>{o.src=--n>0?3===n?c:2===n?l:d:d,0===n&&(clearInterval(e),this.dispatchEvent(new CustomEvent("timer-finished")))},1e3)};this.addEventListener("timer-restarted",()=>{n=4,o.src=s,a()}),i.innerHTML=`
         .container__timer{
         display: flex;
         flex-direction: column;
@@ -416,7 +416,7 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
             height: 300px;
           }
         }  
-         `,t.appendChild(a),e.appendChild(i),e.appendChild(t),o()}}customElements.define("timer-comp",w);class E extends HTMLElement{constructor(){super(),this.render()}render(){let t=this.attachShadow({mode:"open"}),i=document.createElement("div"),n=document.createElement("style"),s=e.getState().game.machinePlay,c=e.getState().game.myPlay,l="piedra"===s?a:"papel"===s?o:r,d="piedra"===c?a:"papel"===c?o:r;i.innerHTML=`
+         `,t.appendChild(o),e.appendChild(i),e.appendChild(t),a()}}customElements.define("timer-comp",w);class E extends HTMLElement{constructor(){super(),this.render()}render(){let t=this.attachShadow({mode:"open"}),i=document.createElement("div"),n=document.createElement("style"),s=e.getState().game.machinePlay,c=e.getState().game.myPlay,l="piedra"===s?o:"papel"===s?a:r,d="piedra"===c?o:"papel"===c?a:r;i.innerHTML=`
       <div class="container__versus">
         <div class="versus__container-machine">
           <img src="${l}" class="versus__imagen img-machine" alt="Machine Icon">
@@ -451,4 +451,4 @@ const e={data:JSON.parse(localStorage.getItem("state"))||{game:{myPlay:"",machin
         margin-top: auto;
       }        
       `,t.appendChild(i),t.appendChild(n)}}customElements.define("versus-comp",E)}();
-//# sourceMappingURL=piedra-papel-tijera.f4df706e.js.map
+//# sourceMappingURL=piedra-papel-tijera.6a5be2ee.js.map
