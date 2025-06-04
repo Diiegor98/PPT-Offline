@@ -27,11 +27,10 @@ const routes = [
   },
 ];
 
-const BASE_PATH = "/PPT-Offline";
+const BASE_PATH = "/PPT-Offline"; 
 
-//Esta funcion devuelve true o false dependiendo si estamos en gh-pages
 function isGitHubPages() {
-  return location.host.includes("github.io");
+  return location.hostname.endsWith("github.io");
 }
 
 export function initRouter(container) {
@@ -40,9 +39,13 @@ export function initRouter(container) {
     history.pushState({}, "", completePath);
     handleRoute(completePath);
   }
+
   function handleRoute(route) {
-    console.log(" el handleRoute recibio una ruta", route);
-    const newRoute = isGitHubPages() ? route.replace(BASE_PATH, "") : route;
+    console.log("El handleRoute recibió una ruta:", route);
+    const newRoute =
+      isGitHubPages() && route.startsWith(BASE_PATH)
+        ? route.replace(BASE_PATH, "")
+        : route;
     container.innerHTML = "";
 
     let routeFound = false;
@@ -54,15 +57,18 @@ export function initRouter(container) {
         break;
       }
     }
+
     if (!routeFound) {
       console.log("Ruta no encontrada:", newRoute);
     }
   }
-  if (location.pathname == "/") {
+
+  if (location.pathname === "/" || location.pathname === BASE_PATH) {
     goTo("/home");
   } else {
     handleRoute(location.pathname);
   }
+
   window.onpopstate = function () {
     handleRoute(location.pathname);
   };
