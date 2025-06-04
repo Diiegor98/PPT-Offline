@@ -9,6 +9,7 @@ const routes = [
     path: /\/home/,
     component: homePage,
   },
+  { path: /^\/$/, component: homePage },
   {
     path: /\/instructions/,
     component: instructionsPage,
@@ -27,7 +28,7 @@ const routes = [
   },
 ];
 
-const BASE_PATH = "/PPT-Offline"; 
+const BASE_PATH = "/PPT-Offline";
 
 function isGitHubPages() {
   return location.hostname.endsWith("github.io");
